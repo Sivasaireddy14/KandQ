@@ -381,17 +381,20 @@ $(".but").removeAttr("disabled")
 }
 if(Acount==12){
   win=Math.max(s1,s2,s3,s4,s5,s6);
-
+setTimeout(function(){
   if(s1===win){
+    $(".scor").html('');
     ws="WINNER WINNER";
     ws1="RAJA RANI DINNER...!"
   }
   else{
+    $(".scor").html('')
     ws="BETTER LUCK";
     ws1="NEXT TIME..........!";
   }
   $("#win").html(ws);
   $("#wint").html(ws1);
+},1000);
 }
 setTimeout(function(){
   div1.css("background","url('https://opengameart.org/sites/default/files/card%20back%20red.png')")
