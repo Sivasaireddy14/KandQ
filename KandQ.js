@@ -16,7 +16,7 @@ jQuery(document).ready(function(){
     var win;
     $("#player").html(p);
     $("#player1").html(p);
-    if(p==='')||(p===null)
+    if((p==='')||(p===null))
     {
       $("#player").html("Guest");
       $("#player1").html("Guest");
