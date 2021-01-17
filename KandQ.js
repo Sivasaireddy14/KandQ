@@ -1,5 +1,9 @@
+function rul(){
+  alert("Game Rules:\r\n King:1000 pts \r\n Queen:700 pts \r\n Minister:500 pts \r\n Soldier:300 pts \r\n Police : If you find the thief 100 pts \/ if you can't find then 0 pts \r\n Thief:0 pts \r\n Total rounds: 12  \r\n Have Fun.........!")
+}
 jQuery(document).ready(function(){
   var p=prompt("Enter your Name");
+  alert("Game Rules:\r\n King:1000 pts \r\n Queen:700 pts \r\n Minister:500 pts \r\n Soldier:300 pts \r\n Police : If you find the thief 100 pts \/ if you can't find then 0 pts \r\n Thief:0 pts \r\n Total rounds: 12  \r\n Have Fun.........!")
     var Acount=0;
     var dummy,king ,queen,minister,soldier,police,theif;
     var set,scset;
@@ -11,9 +15,11 @@ jQuery(document).ready(function(){
     var s1=s2=s3=s4=s5=s6=0;
     var win;
     $("#player").html(p);
-    if((p==='')||(p===null))
+    $("#player1").html(p);
+    if(p==='')
     {
       $("#player").html("Guest");
+      $("#player1").html("Guest");
     }
     var dis=$("#bin")
     var msg="FIND THE THEIF...!"
@@ -38,6 +44,7 @@ jQuery(document).ready(function(){
    scset=[0,100,300,500,700,1000];
 
    set=[dummy,king,queen,minister,soldier,police,theif];
+
     r1= Math.floor(Math.random()*(6-1+1))+1;
     ran1=set[r1];
     set.splice(r1,1)
@@ -58,6 +65,7 @@ jQuery(document).ready(function(){
     set.splice(r6,1)
     count=0;
    Acount=Acount+1;
+   $(".scor").removeClass("sc1")
     $("div.c1").removeClass("d1")
     $("div.c2").removeClass("d2")
     $("div.c3").removeClass("d3")
@@ -73,22 +81,33 @@ jQuery(document).ready(function(){
     $("div.g").attr("id","c4")
       setTimeout(function(){
     $("div.c1").removeAttr("id")
+    $("div.c1").removeClass("d11")
     $("div.c1").addClass("d1")
     $("div.c2").removeAttr("id")
+    $("div.c2").removeClass("d22")
     $("div.c2").addClass("d2")
     $("div.c3").removeAttr("id")
+    $("div.c3").removeClass("d33")
     $("div.c3").addClass("d3")
     $("div.c4").removeAttr("id")
+    $("div.c4").removeClass("d44")
     $("div.c4").addClass("d4")
     $("div.c5").removeAttr("id")
+    $("div.c5").removeClass("d55")
     $("div.c5").addClass("d5")
     $("div.c6").removeAttr("id")
+    $("div.c6").removeClass("d66")
     $("div.c6").addClass("d6")},2000);
     $("#but").attr("disabled","true")
   });
 
-
 var div1=$("div.c1")
+var div2=$("div.c2")
+var div3=$("div.c3")
+var div4=$("div.c4")
+var div5=$("div.c5")
+var div6=$("div.c6")
+setTimeout(function(){
 div1.click(function(){
   if(count===0)
   {
@@ -114,7 +133,7 @@ div1.fadeIn(1000)
 }
 });
 
-var div2=$("div.c2")
+
 div2.click(function(){
   if(count===0)
   {
@@ -140,7 +159,7 @@ div2.fadeIn(1000)
 }
 });
 
-var div3=$("div.c3")
+
 div3.click(function(){
   if(count===0)
   {
@@ -166,7 +185,7 @@ div3.fadeIn(1000)
 }
 });
 
-var div4=$("div.c4")
+
 div4.click(function(){
   if(count===0)
   {
@@ -192,7 +211,6 @@ div4.fadeIn(1000)
 }
 });
 
-var div5=$("div.c5")
 div5.click(function(){
   if(count===0)
   {
@@ -218,7 +236,6 @@ div5.fadeIn(1000)
 }
 });
 
-var div6=$("div.c6")
 div6.click(function(){
   if(count===0)
   {
@@ -243,6 +260,7 @@ div6.fadeIn(1000)
 });
 }
 });
+},4000);
 
 $(".rev").click(function(){
 div1.fadeOut(1000,function(){
@@ -344,6 +362,8 @@ scset.splice(p5,1);
 p6=Math.floor(Math.random()*scset.length);
 t6=scset[p6];
 s6=s6+scset[p6];
+$(".scor").html(t1)
+$(".scor").addClass("sc1")
 $("table.fin #s1").html(s1);
 $("table.fin #s2").html(s2);
 $("table.fin #s3").html(s3);
@@ -356,7 +376,8 @@ if(Acount<12)
 {
 setTimeout(function(){
 $(".but").removeAttr("disabled")
-},1000);
+   $(".scor").html('')
+},4000);
 }
 if(Acount==12){
   win=Math.max(s1,s2,s3,s4,s5,s6);
@@ -372,5 +393,27 @@ if(Acount==12){
   $("#win").html(ws);
   $("#wint").html(ws1);
 }
+setTimeout(function(){
+  div1.css("background","url('https://opengameart.org/sites/default/files/card%20back%20red.png')")
+  div1.css("background-size","280px 300px")
+  div2.css("background","url('https://opengameart.org/sites/default/files/card%20back%20red.png')")
+  div2.css("background-size","280px 300px")
+  div3.css("background","url('https://opengameart.org/sites/default/files/card%20back%20red.png')")
+  div3.css("background-size","280px 300px")
+  div4.css("background","url('https://opengameart.org/sites/default/files/card%20back%20red.png')")
+  div4.css("background-size","280px 300px")
+  div5.css("background","url('https://opengameart.org/sites/default/files/card%20back%20red.png')")
+  div5.css("background-size","280px 300px")
+  div6.css("background","url('https://opengameart.org/sites/default/files/card%20back%20red.png')")
+  div6.css("background-size","280px 300px")
+},3000);
+setTimeout(function(){
+  $(".d1").addClass("d11")
+  $(".d2").addClass("d22")
+  $(".d3").addClass("d33")
+  $(".d4").addClass("d44")
+  $(".d5").addClass("d55")
+  $(".d6").addClass("d66")
+},3000);
 });
 });
